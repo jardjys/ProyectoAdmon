@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ProyectoAdmon</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/Materialize/bin/materialize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- endbuild -->
+
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+      <!-- Navbar -->
+      <nav class="navbar-fixed red darken-3">
+       <div class="nav-wrapper">
+            <!-- logo -->
+        <a>
+          <img class="logo-icon left" src="images/logotec.png">
+        </a>
+
+         <!-- Name project -->
+         <ul class="brand-logo center">
+           <li>
+             <h4 id="project_name">Test</h4>
+           </li>
+         </ul>
+
+         <!-- Name Evaluator -->
+         <ul class="right">
+           <li>
+             <a id="evaluator">evaluator</a>
+           </li>
+           <li>
+             <i class="material-icons prefix">account_circle</i>
+          </li>
+         </ul>
+       </div>
+     </nav>
+
+     <div class="row">
+       <div class="col l10 s12 md10 offset-l1 offset-md10 card-panel white z-depth-1 teal-text">
+        <!-- Tabs menu --->
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs ">
+              <li class="tab col s3"><a class="active" href="#tab1">Payback Period</a></li>
+              <li class="tab col s3"><a  href="#tab2">NPV</a></li>
+              <li class="tab col s3 disabled"><a href="#tab3">Checklist</a></li>
+              <li class="tab col s3 disabled"><a href="#tab4">Project Screen Matrix</a></li>
+            </ul>
+          </div>
+          <!--Ends Tabs menu -->
+
+          <!-- Tab 1 -->
+          <div id="tab1" class="col s12 grey-text text-darken-3">
+            <h4 class= "center-align"> PayBack Period </h4>
+            <br>
+            <div class = "container">
+              <!-- Information about Payback Period -->
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Description</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+              </ul>
+
+              <form class="form">
+                <div class="row form-group" >
+                  <div class="input-field col l2 md2 s2" id="Periodo">
+                      <label class="active" for="Periodo"> Period </label>
+                      <select id="periodo-select">
+                        <option value="0" disabled selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                  </div>
+                  <div class=" col l5 md5 s5">
+                    <label for="Principal">Principal</label>
+                    <input type="text" id="Principal" class="form-control" placeholder="Principal" value="0">
+                  </div>
+                  <div class="col l5 md5 s5">
+                    <label for="Interes">Interest Rate</label>
+                    <input type="text" id="Interes" class="form-control" placeholder="Tasa de Interes" value="0">
+                  </div>
+                  <div class="col l12 md12 s12">
+                    <div class="col l4 md4 s4 offset-l2 offset-md2 offset-s2 form-group">
+                      <button id="Calcular" type ="button" class="waves-effect waves-light btn"> Calculate </button>
+                    </div>
+                    <div class="col l4 md4 s4">
+                      <button id="LDatos" type="button" class="waves-effect waves-light btn"> Clean data </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="row white-text red lighten-2 center-align">
+                <div class="col l3 md3">
+                  <h5> Period</h5>
+                </div>
+                <div class="col l3 md3">
+                  <h5> Outflow </h5>
+                </div>
+                <div class="col l3 md3">
+                  <h5> Inflow </h5>
+                </div>
+                <div class="col l3 md3">
+                  <h5> Cumulative Cash Flow</h5>
+                </div>
+            </div>
+
+            <div id="content"></div>
+          </div>
+
+          <!-- Tab 2 -->
+          <div id="tab2" class="col s12 grey-text text-darken-3">Test 2
+          </div>
+
+
+          <div id="tab3" class="col s12 grey-text text-darken-3">Test 3</div>
+          <div id="tab4" class="col s12 grey-text text-darken-3">Test 4</div>
+        </div>
+
+       </div>
+     </div>
+
+
+
+     <!-- build:js scripts/vendor.js -->
+     <!-- bower:js -->
+     <script src="/bower_components/jquery/dist/jquery.js"></script>
+     <script src="/bower_components/Materialize/bin/materialize.js"></script>
+     <!-- endbower -->
+     <!-- endbuild -->
+
+     <!-- build:js scripts/main.js -->
+     <script src="scripts/main.js"></script>
+     <script src="scripts/payback.js"></script>
+     <!-- endbuild -->
+
+     <script type="text/javascript">
+       $(document).ready(function() {
+         $('select').material_select();
+       });
+     </script>
+
+   </body>
+ </html>
