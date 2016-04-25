@@ -49,7 +49,7 @@ body{
   margin-bottom: 5%;
 }
 
-#pp-table-content input{
+#pp-table-content input, #npv-content input{
   text-align: right;
 }
 

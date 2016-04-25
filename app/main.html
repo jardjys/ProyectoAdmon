@@ -150,14 +150,21 @@
               <ul class="collapsible" data-collapsible="accordion">
                 <li>
                   <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Description</div>
-                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                  <div class="collapsible-body">
+                    <p>The NPV is used as a benchmark to determine the value of an investment. To
+                       determine the NPV, cash flow is calculated as the TOTAL SUM OF ALL PRESENT
+                       INCOME OR CASH against THE PRESENT VALUE OF ALL CAPITAL EXPENSES,
+                       sometimes referred to as Negative Cash Flow. Negative cash flow includes the
+                       initial down payment (Principal), other associated costs to purchase the asset, and
+                       all the expenses incurred in operating the asset (project outcome).</p>
+                  </div>
                 </li>
               </ul>
 
               <form class="form">
                 <div class="row form-group" >
                   <div class="input-field col l2 md2 s3" id="npv-periodo">
-                      <label class="active" for="Periodo"> Period </label>
+                      <label class="active" for="npv-periodo"> Period </label>
                       <select id="npv-periodo-select">
                         <option value="0" disabled selected>0</option>
                         <option value="1">1</option>
@@ -174,46 +181,26 @@
                   </div>
                   <div class="input-field col l3 md3 s6">
                     <label for="npv-Principal">Principal</label>
-                    <input type="text" id="npv-Principal" class="form-control" placeholder="0" >
+                    <input type="text" id="npv-Principal" class="form-control" placeholder="$0" >
                   </div>
                   <div class="input-field col l3 md3 s6">
                     <label for="npv-Currency">Currency</label>
-                    <input type="text" id="npv-Currency" class="form-control" placeholder="Tasa de Interes" value="0">
+                    <input type="text" id="npv-Currency" class="form-control" placeholder="$0">
                   </div>
                   <div class="input-field col l2 md2 s6">
-                    <label for="npv-Interes">Interest Rate</label>
-                    <input type="text" id="npv-Interes" class="form-control" placeholder="Tasa de Interes" value="0">
+                    <label for="npv-Interes">Interest Rate %</label>
+                    <input type="text" id="npv-Interes" class="form-control" placeholder="$0">
                   </div>
                   <div class="input-field col l2 md2 s6">
-                    <label for="npv-Tax">Tax Rate</label>
-                    <input type="text" id="npv-Tax" class="form-control" placeholder="Tasa de Interes" value="0">
+                    <label for="npv-Tax">Tax Rate %</label>
+                    <input type="text" id="npv-Tax" class="form-control" placeholder="$0">
                   </div>
 
                 </div>
               </form>
             </div>
 
-            <!--
-            <div class="row white-text red lighten-2 center-align">
-                <div class="col l2 md2">
-                  <h5> Period</h5>
-                </div>
-                <div class="col l2 md3">
-                  <h5> Outflow </h5>
-                </div>
-                <div class="col l2 md3">
-                  <h5> Inflow </h5>
-                </div>
-                <div class="col l3 md3">
-                  <h5> Net Cash Flow</h5>
-                </div>
-                <div class="col l3 md3">
-                  <h5> Cumulative Cash Flow</h5>
-                </div>
-            </div>
-          -->
-
-            <div id="npv-content"></div>
+            <div id="npv-content" class="table-content"></div>
 
             <div class="container">
               <div class="col l12 md12 s12">
@@ -221,7 +208,7 @@
                   <button id="npv-Calcular" type ="button" class="waves-effect waves-light btn"> Calculate </button>
                 </div>
                 <div class="col l4 md4 s4">
-                  <button id="npvLDatos" type="button" class="waves-effect waves-light btn"> Clean data </button>
+                  <button id="npv-LDatos" type="button" class="waves-effect waves-light btn"> Clean data </button>
                 </div>
               </div>
             </div>
@@ -246,7 +233,9 @@
 
      <!-- build:js scripts/main.js -->
      <script src="scripts/main.js"></script>
+     <script src="scripts/validators.js"></script>
      <script src="scripts/payback.js"></script>
+     <script src="scripts/npv.js"></script>
      <!-- endbuild -->
 
      <script type="text/javascript">
