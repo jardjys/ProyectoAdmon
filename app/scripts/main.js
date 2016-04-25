@@ -9,4 +9,9 @@
   document.getElementById('evaluator').innerHTML = evaluator;
 })();
 
+
+$( document ).ready(function(){
+  $(".dropdown-button").dropdown();
+});
+
 /* END Init */

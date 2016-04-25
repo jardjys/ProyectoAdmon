@@ -35,15 +35,29 @@ body{
 }
 
 .logo-icon{
-  height: auto;
-  width: 10%;
+  height: 100%;
+  width: auto;
 
+  background-color: white;
   text-align: center;
-  padding: 15px 5px;
+  padding: 15px 15px;
 }
 
 .logo-login{
   max-width: 60%;
   height: auto;
   margin-bottom: 5%;
+}
+
+#pp-table-content input{
+  text-align: right;
+}
+
+.table-content{
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.table-content input {
+  font-size: 16pt;
 }

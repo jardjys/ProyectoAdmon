@@ -43,7 +43,7 @@
          <!-- Name Evaluator -->
          <ul class="right">
            <li>
-             <a id="evaluator">evaluator</a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown1" id="evaluator">evaluator</a>
            </li>
            <li>
              <i class="material-icons prefix">account_circle</i>
@@ -51,6 +51,9 @@
          </ul>
        </div>
      </nav>
+     <ul id="dropdown1" class="dropdown-content">
+        <li><a href="index.html">Exit</a></li>
+    </ul>
 
      <div class="row">
        <div class="col l10 s12 md10 offset-l1 offset-md10 card-panel white z-depth-1 teal-text">
@@ -66,7 +69,7 @@
           </div>
           <!--Ends Tabs menu -->
 
-          <!-- Tab 1 -->
+          <!-- Tab 1: PAYBACK PERIOD -->
           <div id="tab1" class="col s12 grey-text text-darken-3">
             <h4 class= "center-align"> PayBack Period </h4>
             <br>
@@ -75,14 +78,26 @@
               <ul class="collapsible" data-collapsible="accordion">
                 <li>
                   <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Description</div>
-                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                  <div class="collapsible-body">
+                    <p>Method of evaluating investment opportunities and product development projects on the basis of the time taken to recoup the investment.
+                       This period is compared to the required payback period to determine the acceptability of the investment proposal. <br><br>
+                       <b>Instructions:</b><br>
+                        1. Specify the numbers of periods in a range of 1 to 10. <br>
+                        2. Put a positive principal in the field. <br>
+                        3. Put a positive Interets Rate (without '%' sign).<br>
+                        4. Fill the inflows and outflows in the table bellow.<br>
+                        5. Scroll down and click <b>'Calculate'</b>. The Payback period will be colored in green if there is one.<br>
+                        6. Change the values and click <b>'Calculate'</b> again to calculate a new payback period. <br>
+                           You can use <b>'Clear Data'</b> to reset all the fields but periods quantity.
+                     </p>
+                  </div>
                 </li>
               </ul>
 
               <form class="form">
                 <div class="row form-group" >
                   <div class="input-field col l2 md2 s2" id="Periodo">
-                      <label class="active" for="Periodo"> Period </label>
+                      <label class="active" for="Periodo"> Periods </label>
                       <select id="periodo-select">
                         <option value="0" disabled selected>0</option>
                         <option value="1">1</option>
@@ -97,48 +112,121 @@
                         <option value="10">10</option>
                       </select>
                   </div>
-                  <div class=" col l5 md5 s5">
-                    <label for="Principal">Principal</label>
-                    <input type="text" id="Principal" class="form-control" placeholder="Principal" value="0">
+                  <div class="input-field col l5 md5 s5">
+                    <label for="pp-principal">Principal</label>
+                    <input type="text" id="pp-principal" class="form-control" placeholder="$0" >
                   </div>
-                  <div class="col l5 md5 s5">
-                    <label for="Interes">Interest Rate</label>
-                    <input type="text" id="Interes" class="form-control" placeholder="Tasa de Interes" value="0">
-                  </div>
-                  <div class="col l12 md12 s12">
-                    <div class="col l4 md4 s4 offset-l2 offset-md2 offset-s2 form-group">
-                      <button id="Calcular" type ="button" class="waves-effect waves-light btn"> Calculate </button>
-                    </div>
-                    <div class="col l4 md4 s4">
-                      <button id="LDatos" type="button" class="waves-effect waves-light btn"> Clean data </button>
-                    </div>
+                  <div class="input-field col l5 md5 s5">
+                    <label for="pp-interes">Interest Rate %</label>
+                    <input type="text" id="pp-interes" class="form-control" placeholder="$0">
                   </div>
                 </div>
               </form>
             </div>
 
+
+            <div id="pp-table-content" class="table-content"></div>
+
+            <div class="container">
+              <div class="col l12 md12 s12">
+                <div class="col l4 md4 s4 offset-l2 offset-md2 offset-s2 form-group">
+                  <button id="Calcular" type ="button" class="waves-effect waves-light btn"> Calculate </button>
+                </div>
+                <div class="col l4 md4 s4">
+                  <button id="LDatos" type="button" class="waves-effect waves-light btn"> Clean data </button>
+                </div>
+              </div>
+            </div>
+            <!-- ENDS Tab 1. -->
+          </div>
+
+
+          <!-- Tab 2: NET PRESENT VALUE -->
+          <div id="tab2" class="col s12 grey-text text-darken-3">
+            <h4 class= "center-align"> Net Present Value </h4>
+            <br>
+            <div class = "container">
+              <!-- Information about Payback Period -->
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Description</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+              </ul>
+
+              <form class="form">
+                <div class="row form-group" >
+                  <div class="input-field col l2 md2 s3" id="npv-periodo">
+                      <label class="active" for="Periodo"> Period </label>
+                      <select id="npv-periodo-select">
+                        <option value="0" disabled selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                  </div>
+                  <div class="input-field col l3 md3 s6">
+                    <label for="npv-Principal">Principal</label>
+                    <input type="text" id="npv-Principal" class="form-control" placeholder="0" >
+                  </div>
+                  <div class="input-field col l3 md3 s6">
+                    <label for="npv-Currency">Currency</label>
+                    <input type="text" id="npv-Currency" class="form-control" placeholder="Tasa de Interes" value="0">
+                  </div>
+                  <div class="input-field col l2 md2 s6">
+                    <label for="npv-Interes">Interest Rate</label>
+                    <input type="text" id="npv-Interes" class="form-control" placeholder="Tasa de Interes" value="0">
+                  </div>
+                  <div class="input-field col l2 md2 s6">
+                    <label for="npv-Tax">Tax Rate</label>
+                    <input type="text" id="npv-Tax" class="form-control" placeholder="Tasa de Interes" value="0">
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+            <!--
             <div class="row white-text red lighten-2 center-align">
-                <div class="col l3 md3">
+                <div class="col l2 md2">
                   <h5> Period</h5>
                 </div>
-                <div class="col l3 md3">
+                <div class="col l2 md3">
                   <h5> Outflow </h5>
                 </div>
-                <div class="col l3 md3">
+                <div class="col l2 md3">
                   <h5> Inflow </h5>
+                </div>
+                <div class="col l3 md3">
+                  <h5> Net Cash Flow</h5>
                 </div>
                 <div class="col l3 md3">
                   <h5> Cumulative Cash Flow</h5>
                 </div>
             </div>
+          -->
 
-            <div id="content"></div>
+            <div id="npv-content"></div>
+
+            <div class="container">
+              <div class="col l12 md12 s12">
+                <div class="col l4 md4 s4 offset-l2 offset-md2 offset-s2 form-group">
+                  <button id="npv-Calcular" type ="button" class="waves-effect waves-light btn"> Calculate </button>
+                </div>
+                <div class="col l4 md4 s4">
+                  <button id="npvLDatos" type="button" class="waves-effect waves-light btn"> Clean data </button>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <!-- Tab 2 -->
-          <div id="tab2" class="col s12 grey-text text-darken-3">Test 2
-          </div>
-
+          <!--ENDS Tab 2 -->
 
           <div id="tab3" class="col s12 grey-text text-darken-3">Test 3</div>
           <div id="tab4" class="col s12 grey-text text-darken-3">Test 4</div>
