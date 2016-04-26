@@ -44,66 +44,87 @@ function drawNPVTable(){
 }
 
 function calculaNPV(){
-  var periodos = $('#npv-periodo-select').val();
-  var principal = $('#npv-principal').val();
+  var select = document.getElementById('npv-periodo-select');
+  var periodos =select.options[select.selectedIndex].value;
+  var principal = $('#npv-Principal').val();
   var interes = $('#npv-Interes').val();
   var tax = $('#npv-Tax').val();
-  var currency = $('#npv-Currency').val();
 
-  if(select.options[select.selectedIndex].value == 0){
+  if(periodos == 0){
     alert('Select a number of periods and fill the information');
     return;
   }
-  if(principal.value == '0'){
+
+  if(principal == 0 || principal == null){
     alert('The principal has to be greater than 0');
     return;
   }
 
-  var inflows = new Array(periodos);
-  var outflows = new Array(periodos);
+  var inflows = [];
+  var outflows = [];
 
-  for(var i = 0; i < periodos; i++)
+  for(var i = 0; i < periodos; i++){
+    inflows[i] = $('#npv-inflow' + (i + 1)).val();
+    outflows[i] = $('#npv-outflow' + (i + 1)).val();
+  }
 
-  inflows[0] = $('#inflows0').val();
-  inflows[1] = $('#inflows1').val();
-  inflows[2] = $('#inflows2').val();
-  inflows[3] = $('#inflows3').val();
-  inflows[4] = $('#inflows4').val();
-  inflows[5] = $('#inflows5').val();
-  inflows[6] = $('#inflows6').val();
-  inflows[7] = $('#inflows7').val();
-  inflows[8] = $('#inflows8').val();
-  inflows[9] = $('#inflows9').val();
-  inflows[10] = $('#inflows10').val();
-
-  outflows[0] = $('#outflows0').val();
-  outflows[1] = $('#outflows1').val();
-  outflows[2] = $('#outflows2').val();
-  outflows[3] = $('#outflows3').val();
-  outflows[4] = $('#outflows4').val();
-  outflows[5] = $('#outflows5').val();
-  outflows[6] = $('#outflows6').val();
-  outflows[7] = $('#outflows7').val();
-  outflows[8] = $('#outflows8').val();
-  outflows[9] = $('#outflows9').val();
-  outflows[10] = $('#outflows10').val();
-
-  var netflow = new Array(periodos);
-  var cummulative = new Array(periodos);
+  var netflow = [];
+  var cummulative = [];
   var npv = 0;
 
   tax = tax/100;
   interes = interes/100;
+
   for(var i = 0; i < periodos; i++){
     netflow[i] = inflows[i] - outflows[i];
     cummulative[i] = (netflow[i]*(1-tax))/Math.pow((1+interes), i);
     npv = npv + cummulative[i];
-    console.log('Periodo: ' + i);
-    console.log('Netflow: ' + netflow[i]);
-    console.log('Cummulative: ' + cummulative[i]);
+
+    var netflowField =  $('#npv-ncf'+ ( i+ 1));
+    var cummulativeField = $('#npv-cummulative' + (i + 1));
+
+    if(netflow[i] < 0){
+      netflowField.css('color','red');
+    }else{
+      netflowField.css('color','black');
+    }
+
+    if(cummulative[i] < 0){
+      cummulativeField.css('color','red');
+    }else{
+      cummulativeField.css('color','black');
+    }
+
+    netflowField.val(netflow[i].toFixed(2));
+    cummulativeField.val(cummulative[i].toFixed(2));
+
   };
-  console.log('NPV is: ' + npv);
-  $('#npv').html('<p>The NPV of the project is: $' + npv + ' ' + currency + '.</p><br>');
+
+  var result = (npv - principal).toFixed(2);
+
+  if(result < 0){
+      $('#npv-result').css('color', 'red').html('-$ ' + Math.abs(result));
+  }else{
+      $('#npv-result').css('color', 'black').html('$ ' + result);
+  }
+}
+
+function clean_npv(){
+  $('#npv-Principal').val('');
+  $('#npv-Interes').val('');
+  $('#npv-Tax').val('');
+
+  var select = document.getElementById('npv-periodo-select');
+  var periodos =select.options[select.selectedIndex].value;
+
+  for(var i = 0; i < periodos; i++){
+    $('#npv-inflow' + (i + 1)).val('');
+    $('#npv-outflow' + (i + 1)).val('');
+    $('#npv-ncf'+ ( i+ 1)).val('$0').css('color', 'black');
+    $('#npv-cummulative' + (i + 1)).val('$0').css('color', 'black');
+  }
+
+  $('#npv-result').css('color', 'black').html('$0');
 }
 
 
@@ -115,9 +136,7 @@ $(document).ready(function(){
 	*/
   $('#npv-periodo').on('change', 'select', drawNPVTable);
 	$('#npv-Principal').on('focusout', null,	'npv-Principal', validatePrincipal);
-  $('#npv-Currency').on('focusout', null,	'npv-Currency', validatePrincipal);
-	$('#npv-Interes').on('focusout', null, 'npv-Interes', validateInterest);
   $('#npv-Tax').on('focusout', null, 'npv-Tax', validateInterest);
-	$('#npv-Calcular').on('click',	calculate);
-	$('#npv-LDatos').on('click', Clear);
+	$('#npv-Calcular').on('click',	calculaNPV);
+	$('#npv-LDatos').on('click', clean_npv);
 });
