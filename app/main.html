@@ -17,8 +17,8 @@
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- endbuild -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   </head>
   <body>
@@ -245,8 +245,8 @@
                 </li>
               </ul>
 
-              <form id="checklist_form" class="form" method="post" action="print.php">
-                  <table class="striped">
+              <form id="checklist_form" class="form" method="post" >
+                  <table id="ignore"  class="striped">
                       <thead>
                         <tr>
                             <th data-field="id">Topic</th>
@@ -254,7 +254,7 @@
                             <th data-field="price">Answer</th>
                         </tr>
                       </thead>
-                      <tr>
+                      <tr >
                           <td style="width:12%">Strategy/alignment</td>
                           <td>What specific organization strategy does this project align with?</td>
                           <td style="width:25%"><input type="text" name="1" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
@@ -419,6 +419,7 @@
      <script src="/bower_components/jquery/dist/jquery.js"></script>
      <script src="/bower_components/Materialize/bin/materialize.js"></script>
      <script src="/bower_components/jspdf/dist/jspdf.debug.js"></script>
+     <script src="/bower_components/html2canvas_whitelist/build/html2canvas.js"></script>
      <!-- endbower -->
      <!-- endbuild -->
 
