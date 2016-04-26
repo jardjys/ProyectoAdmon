@@ -63,7 +63,7 @@
             <ul class="tabs ">
               <li class="tab col s3"><a class="active" href="#tab1">Payback Period</a></li>
               <li class="tab col s3"><a  href="#tab2">NPV</a></li>
-              <li class="tab col s3 disabled"><a href="#tab3">Checklist</a></li>
+              <li class="tab col s3"><a href="#tab3">Checklist</a></li>
               <li class="tab col s3 disabled"><a href="#tab4">Project Screen Matrix</a></li>
             </ul>
           </div>
@@ -139,7 +139,6 @@
             </div>
             <!-- ENDS Tab 1. -->
           </div>
-
 
           <!-- Tab 2: NET PRESENT VALUE -->
           <div id="tab2" class="col s12 grey-text text-darken-3">
@@ -230,7 +229,183 @@
           </div>
           <!--ENDS Tab 2 -->
 
-          <div id="tab3" class="col s12 grey-text text-darken-3">Test 3</div>
+          <!-- Tab 3: CHECKLIST -->
+          <div id="tab3" class="col s12 grey-text text-darken-3">
+            <h4 class= "center-align"> Checklist </h4>
+            <br>
+            <div class = "container">
+              <!-- Information about Payback Period -->
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Description</div>
+                  <div class="collapsible-body">
+                    <p> Short Description.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+
+              <form class="form" method="post" action="print.php">
+                  <table class="striped">
+                      <thead>
+                        <tr>
+                            <th data-field="id">Topic</th>
+                            <th data-field="name">Question</th>
+                            <th data-field="price">Answer</th>
+                        </tr>
+                      </thead>
+                      <tr>
+                          <td style="width:12%">Strategy/alignment</td>
+                          <td>What specific organization strategy does this project align with?</td>
+                          <td style="width:25%"><input type="text" name="1" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Driver</td>
+                          <td>What business problem does the project solve?</td>
+                          <td style="width:25%"><input type="text" name="2" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Success metrics</td>
+                          <td>How will measure success?</td>
+                          <td style="width:25%"><input type="text" name="3" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Sponsorship</td>
+                          <td>Who is the project sponsor?</td>
+                          <td style="width:25%"><input type="text" name="4" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Risk</td>
+                          <td>What is the impact of not doing this project?</td>
+                          <td style="width:25%"><input type="text" name="5" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Risk</td>
+                          <td>What is the project risk to our organization?</td>
+                          <td style="width:25%"><input type="text" name="6" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Risk</td>
+                          <td>Where does the proposed project fit in our risk profile?</td>
+                          <td style="width:25%"><input type="text" name="7" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Benefits, value</td>
+                          <td>What is the value of the project organization?</td>
+                          <td style="width:25%"><input type="text" name="8" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Benefits, value</td>
+                          <td>When will the project shows result?</td>
+                          <td style="width:25%"><input type="text" name="9" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Objectives</td>
+                          <td>What are the project objectives?</td>
+                          <td style="width:25%"><input type="text" name="10" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Organization Culture</td>
+                          <td>Is our organization culture right for this type of project?</td>
+                          <td style="width:25%"><select name="11">
+
+                    <option value="0" disabled selected>Choose your option</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                  </select></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Resources</td>
+                          <td>Will internal resources be available for this project?</td>
+                          <td style="width:25%"><select name="12">
+                    <option value="0" disabled selected>Choose your option</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                  </select></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Approach</td>
+                          <td>Will we build or buy?</td>
+                          <td style="width:25%"><select name="13">
+                    <option value="0" disabled selected>Choose your option</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                  </select></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Schedule</td>
+                          <td>How long will this project take?</td>
+                          <td style="width:25%"><input type="text" name="14" style="width:100%" placeholder="N/A"><br></tdstyle="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Schedule</td>
+                          <td>Is the timeline realistic?</td>
+                          <td style="width:25%"><form><select name="15">
+                    <option value="0" disabled selected>Choose your option</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                  </select></td style="width:100%">
+                      </tr>
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Training/resources</td>
+                          <td>Will staff training be required?</td>
+                          <td style="width:25%"><select name="16">
+                    <option value="0" disabled selected>Choose your option</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                  </select></td style="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Finance/portfolio</td>
+                          <td>What is the estimated cost of the project?</td>
+                          <td style="width:25%"><input type="text" name="17" style="width:100%" placeholder="N/A"><br></td style="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Portfolio</td>
+                          <td>Is this a new initiative or path of an existing initiative?</td>
+                          <td style="width:25%"><select name="18">
+                    <option value="0" disabled selected>Choose your option</option>
+                    <option value="yes">Yes</option>
+                    <option value="No">No</option>
+                  </select></td style="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Portfolio</td>
+                          <td>How does this project interact with current projects?</td>
+                          <td style="width:25%"><input type="text" name="19" style="width:100%" placeholder="N/A"><br></td style="width:100%">
+                      </tr>
+                      <tr>
+                          <td style="width:12%">Technology</td>
+                          <td>Is the technology available or new?</td>
+                          <td style="width:25%"><select name="20">
+                    <option value="0" disabled selected>Choose your option</option>
+                    <option value="available">available</option>
+                    <option value="new">new</option>
+                  </select></td style="width:100%">
+                      </tr>
+                  </table>
+
+              </form>
+
+              <div class="container">
+                <div class="row">
+                  <div class="col l12 md12 s12">
+                    <div class="col l5 md5 s5 offset-l2 offset-md2 offset-s2 form-group">
+                      <button  type ="button" class="waves-effect waves-light btn" onclick="printChecklist()"> Print Form </button>
+                    </div>
+                    <div class="col l4 md4 s4">
+                      <button  type="button" class="waves-effect waves-light btn" onclick="cleanChecklist()"> Clean data </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- ENDS Tab 3 -->
+
           <div id="tab4" class="col s12 grey-text text-darken-3">Test 4</div>
         </div>
 
@@ -251,13 +426,8 @@
      <script src="scripts/validators.js"></script>
      <script src="scripts/payback.js"></script>
      <script src="scripts/npv.js"></script>
+     <script src="scripts/checklist.js"></script>
      <!-- endbuild -->
-
-     <script type="text/javascript">
-       $(document).ready(function() {
-         $('select').material_select();
-       });
-     </script>
 
    </body>
  </html>

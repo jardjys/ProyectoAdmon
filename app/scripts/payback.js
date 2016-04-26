@@ -46,11 +46,11 @@ function calculate(){
 	var interest = document.getElementById('pp-interes');
 
 	if(select.options[select.selectedIndex].value == 0){
-		alert('Select a number of periods and fill the information');
+		Materialize.toast('Select a number of periods and fill the table.', 3000);
 		return;
 	}
 	if(principal.value == '0'){
-		alert('The principal has to be greater than 0');
+		Materialize.toast('The principal has to be greater than 0.', 3000);
 		return;
 	}
 	var periods = select.options[select.selectedIndex].value;

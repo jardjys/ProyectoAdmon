@@ -61,3 +61,31 @@ body{
 .table-content input {
   font-size: 16pt;
 }
+
+@media only screen and (min-width : 601px) and (max-width : 1260px) {
+.toast {
+  width: 80%;
+  border-radius: 0;} }
+
+@media only screen and (min-width : 1261px) {
+.toast {
+  width: 80%;
+  border-radius: 0; } }
+
+@media only screen and (min-width : 601px) and (max-width : 1260px) {
+#toast-container {
+  text-align: center;
+  min-width: 80%;
+  bottom: 0%;
+  top: 90%;
+  right: 0%;
+  left: 0%;} }
+
+@media only screen and (min-width : 1261px) {
+#toast-container {
+  text-align: center;
+  min-width: 80%;
+  bottom: 0%;
+  top: 90%;
+  right: 0%;
+  left: 0%; } }

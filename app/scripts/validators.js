@@ -5,7 +5,7 @@ function validateFlow(id){
 		input.val(0);
 	}else{
 		if(isNaN(parseFloat(input.val()))){
-			alert('You have an invalid value in your cashflow');
+      Materialize.toast('Invalid value for cashflow!', 3000)
 			input.val(0);
 		}else{
 			input.val(parseFloat(input.val()));
@@ -19,11 +19,11 @@ function validateInterest(event){
 		interest.value = '0';
 	}
 	if(isNaN(parseInt(interest.value))){
-		alert('Please, put a valid integer as the interest');
+		Materialize.toast('Please, put a valid integer as the interest.', 3000);
 		interest.value = '0';
 	}else{
 		if(parseInt(interest.value) < 0 || parseInt(interest.value, 10) > 100){
-			alert('You have to choose an interest percentage between 0 - 100');
+			Materialize.toast('You have to choose an interest percentage between 0 - 100.', 3000);
 			interest.value = '0';
 		}
 	}
@@ -38,11 +38,11 @@ function validatePrincipal(event){
 	}
 
 	if(isNaN(parseFloat(principal.value))){
-		alert('Please, put a valid number as the Principal');
+		Materialize.toast('Please, put a valid number as the Principal', 3000);
 		principal.value = '0';
 	}else{
 		if(parseFloat(principal.value) < 0){
-			alert('Please, put a positive number');
+			Materialize.toast('Please, put a positive number', 3000);
 			principal.value = '0';
 		}
 	}

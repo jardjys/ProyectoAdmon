@@ -51,12 +51,12 @@ function calculaNPV(){
   var tax = $('#npv-Tax').val();
 
   if(periodos == 0){
-    alert('Select a number of periods and fill the information');
+    Materialize.toast('Select a number of periods and fill the table.', 3000);
     return;
   }
 
   if(principal == 0 || principal == null){
-    alert('The principal has to be greater than 0');
+    Materialize.toast('The principal has to be greater than 0.', 3000);
     return;
   }
 
@@ -137,6 +137,7 @@ $(document).ready(function(){
   $('#npv-periodo').on('change', 'select', drawNPVTable);
 	$('#npv-Principal').on('focusout', null,	'npv-Principal', validatePrincipal);
   $('#npv-Tax').on('focusout', null, 'npv-Tax', validateInterest);
+	$('#npv-Interes').on('focusout', null, 'npv-Interes', validateInterest);
 	$('#npv-Calcular').on('click',	calculaNPV);
 	$('#npv-LDatos').on('click', clean_npv);
 });
