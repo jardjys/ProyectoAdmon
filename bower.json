@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "jquery": "~2.1.1",
-    "Materialize": "materialize#^0.97.6"
+    "Materialize": "materialize#^0.97.6",
+    "jspdf": "^1.2.61"
   },
   "devDependencies": {
     "chai": "^3.5.0",
