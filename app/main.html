@@ -75,7 +75,7 @@
             <br>
             <div class = "container">
               <!-- Information about Payback Period -->
-              <ul class="collapsible" data-collapsible="accordion">
+              <ul id="pp-description" class="collapsible" data-collapsible="accordion">
                 <li>
                   <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Description</div>
                   <div class="collapsible-body">
@@ -94,7 +94,7 @@
                 </li>
               </ul>
 
-              <form class="form">
+              <form id="pp-form" class="form">
                 <div class="row form-group" >
                   <div class="input-field col l2 md2 s2" id="Periodo">
                       <label class="active" for="Periodo"> Periods </label>
@@ -129,11 +129,14 @@
 
             <div class="container">
               <div class="col l12 md12 s12">
-                <div class="col l4 md4 s4 offset-l2 offset-md2 offset-s2 form-group">
+                <div class="col l4 md4 s4  form-group">
                   <button id="Calcular" type ="button" class="waves-effect waves-light btn"> Calculate </button>
                 </div>
                 <div class="col l4 md4 s4">
                   <button id="LDatos" type="button" class="waves-effect waves-light btn"> Clean data </button>
+                </div>
+                <div class="col l4 md4 s4">
+                  <button id="pp-print" type="button" class="waves-effect waves-light btn disabled" onclick="printPaybackPeriod()"> Print Result </button>
                 </div>
               </div>
             </div>
@@ -173,7 +176,7 @@
                 </li>
               </ul>
 
-              <form class="form">
+              <form id="npv-form" class="form">
                 <div class="row form-group" >
                   <div class="input-field col l3 md3 s3" id="npv-periodo">
                       <label class="active" for="npv-periodo"> Period </label>
@@ -211,18 +214,23 @@
             <div id="npv-content" class="table-content"></div>
 
             <div class="container">
-              <div class="col l4 md4 s6 offset-l2 offset-md2 card-panel grey lighten-2">
-                <h5>Net Present Value</h5>
-              </div>
-              <div class="col l4 md4 s6 card-panel right-align">
-                <h5 id="npv-result">$0</h5>
+              <div id="npv-result-container">
+                <div class="col l4 md4 s6 offset-l2 offset-md2 card-panel grey lighten-2">
+                  <h5>Net Present Value</h5>
+                </div>
+                <div class="col l4 md4 s6 card-panel right-align">
+                  <h5 id="npv-result">$0</h5>
+                </div>
               </div>
               <div class="col l12 md12 s12">
-                <div class="col l4 md4 s4 offset-l3 offset-md2 offset-s2 form-group">
+                <div class="col l4 md4 s4 form-group">
                   <button id="npv-Calcular" type ="button" class="waves-effect waves-light btn"> Calculate </button>
                 </div>
                 <div class="col l4 md4 s4">
                   <button id="npv-LDatos" type="button" class="waves-effect waves-light btn"> Clean data </button>
+                </div>
+                <div class="col l4 md4 s4">
+                  <button id="npv-print" type="button" class="waves-effect waves-light btn disabled" onclick="printNPV()"> Print Result </button>
                 </div>
               </div>
             </div>
@@ -420,6 +428,7 @@
      <script src="/bower_components/Materialize/bin/materialize.js"></script>
      <script src="/bower_components/jspdf/dist/jspdf.debug.js"></script>
      <script src="/bower_components/html2canvas_whitelist/build/html2canvas.js"></script>
+     <script src="/bower_components/html2canvas/build/html2canvas.js"></script>
      <!-- endbower -->
      <!-- endbuild -->
 

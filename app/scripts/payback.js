@@ -65,7 +65,7 @@ function calculate(){
 		var cost = cummulativeFlow * interest /100;
 		cummulativeFlow += cashflow + cost;
 		var result = document.getElementById('cummulative' + i);
-		result.value = cummulativeFlow;
+		result.value = cummulativeFlow.toFixed(2);
 
 		if(cummulativeFlow < 0){
 			result.style.color = 'red';
@@ -79,6 +79,8 @@ function calculate(){
 		}
 
 		prevC = cummulativeFlow;
+
+		$('#pp-print').removeClass('disabled');
 	}
 }
 
@@ -97,6 +99,39 @@ function Clear(){
 		document.getElementById('cummulative' + i).style.backgroundColor = 'white';
 		document.getElementById('cummulative' + i).style.color = 'black';
 	}
+
+	$('#pp-print').addClass('disabled');
+}
+
+function printPaybackPeriod() {
+	var table = $('#pp-table-content');
+	var form = $('#pp-form');
+	var cache_width = table.width();
+	var a4 = [595.28, 841.89];
+
+	var doc = new jsPDF({unit:'px', format:'a4'});
+
+	doc.setFontSize(36);
+	doc.text('Payback Period', 120, 75);
+
+	html2canvas(table,{
+     imageTimeout:2000,
+     removeContainer:true,
+		 onrendered: function(canvas){
+			 var img = canvas.toDataURL('image/png');
+			 doc.addImage(img, 'JPEG', 0, 150, canvas.width * .40 , canvas.height * .40);
+
+			 html2canvas(form,{
+					imageTimeout:2000,
+					removeContainer:true,
+					onrendered: function(canvas){
+						var img = canvas.toDataURL('image/png');
+						doc.addImage(img, 'JPEG', 75, 100, canvas.width * .40, canvas.height * .40);
+						doc.save('Payback.pdf');
+					}
+				 });
+		 }
+    });
 }
 
 $(document).ready(function(){

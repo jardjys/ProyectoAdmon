@@ -98,6 +98,8 @@ function calculaNPV(){
     netflowField.val(netflow[i].toFixed(2));
     cummulativeField.val(cummulative[i].toFixed(2));
 
+		$('#npv-print').removeClass('disabled');
+
   };
 
   var result = (npv - principal).toFixed(2);
@@ -125,8 +127,38 @@ function clean_npv(){
   }
 
   $('#npv-result').css('color', 'black').html('$0');
+	$('#npv-print').addClass('disabled');
 }
 
+function printNPV() {
+	var table = $('#npv-content');
+	var form = $('#npv-form');
+	var result = $('#npv-result-container');
+	var a4 = [595.28, 841.89];
+
+	var doc = new jsPDF({unit:'px', format:'a4'});
+
+	doc.setFontSize(36);
+	doc.text('Net Present Value', 100, 75);
+
+	html2canvas(table,{
+     imageTimeout:2000,
+     removeContainer:true,
+		 onrendered: function(canvas){
+			 var img = canvas.toDataURL('image/png');
+			 doc.addImage(img, 'JPEG', 0, 150, canvas.width * .40 , canvas.height * .40);
+
+			 html2canvas(form,{
+					imageTimeout:2000,
+					removeContainer:true,
+					onrendered: function(canvas){
+						var img = canvas.toDataURL('image/png');
+						doc.addImage(img, 'JPEG', 50, 100, canvas.width * .40, canvas.height * .40);	
+				 }
+			 });
+		}
+	});
+}
 
 $(document).ready(function(){
   /*Attention:
