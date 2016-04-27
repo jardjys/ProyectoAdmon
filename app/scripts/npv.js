@@ -133,13 +133,13 @@ function clean_npv(){
 function printNPV() {
 	var table = $('#npv-content');
 	var form = $('#npv-form');
-	var result = $('#npv-result-container');
+	var result = $('#npv-result').text();
 	var a4 = [595.28, 841.89];
 
 	var doc = new jsPDF({unit:'px', format:'a4'});
 
 	doc.setFontSize(36);
-	doc.text('Net Present Value', 100, 75);
+	doc.text('Net Present Value', 100, 50);
 
 	html2canvas(table,{
      imageTimeout:2000,
@@ -153,7 +153,10 @@ function printNPV() {
 					removeContainer:true,
 					onrendered: function(canvas){
 						var img = canvas.toDataURL('image/png');
-						doc.addImage(img, 'JPEG', 50, 100, canvas.width * .40, canvas.height * .40);	
+						doc.addImage(img, 'JPEG', 50, 75, canvas.width * .40, canvas.height * .40);
+						doc.setFontSize(24);
+						doc.text('Net Present Value: ' + result, 50, 140);
+						doc.save('npv.pdf');
 				 }
 			 });
 		}
