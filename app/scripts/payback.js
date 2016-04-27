@@ -107,26 +107,39 @@ function printPaybackPeriod() {
 	var table = $('#pp-table-content');
 	var form = $('#pp-form');
 	var cache_width = table.width();
-	var a4 = [595.28, 841.89];
+	var a4 = [210, 297];
 
-	var doc = new jsPDF({unit:'px', format:'a4'});
+	var doc = new jsPDF({unit:'mm', format:'a4'});
+	var proyecto = localStorage.getItem('project_name');
+	var nombre = localStorage.getItem('project_name');
 
 	doc.setFontSize(36);
-	doc.text('Payback Period', 120, 75);
+	doc.text('Payback Period', 60, 20);
+
+	doc.setFontSize(12);
+
+	doc.text('Project: ' + nombre, 30, 35);
+	doc.text('Evaluator: ' + nombre, 30, 40);
+
+	var pixel = 0.264583;
 
 	html2canvas(table,{
      imageTimeout:2000,
      removeContainer:true,
 		 onrendered: function(canvas){
 			 var img = canvas.toDataURL('image/png');
-			 doc.addImage(img, 'JPEG', 0, 150, canvas.width * .40 , canvas.height * .40);
+			 var proportion = canvas.width / canvas.height;
+			 var scale = 0.80;
+			 doc.addImage(img, 'JPEG', 20, 60, a4[0] * scale, (a4[1]  / proportion) * scale);
 
 			 html2canvas(form,{
 					imageTimeout:2000,
 					removeContainer:true,
 					onrendered: function(canvas){
 						var img = canvas.toDataURL('image/png');
-						doc.addImage(img, 'JPEG', 75, 100, canvas.width * .40, canvas.height * .40);
+						var proportion = canvas.width / canvas.height;
+						var scale = .60;
+						doc.addImage(img, 'JPEG', 50, 45,  a4[0] * scale, (a4[1] / proportion) * scale);
 						doc.save('Payback.pdf');
 					}
 				 });

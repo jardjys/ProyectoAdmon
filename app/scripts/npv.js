@@ -137,25 +137,36 @@ function printNPV() {
 	var a4 = [595.28, 841.89];
 
 	var doc = new jsPDF({unit:'px', format:'a4'});
+	var proyecto = localStorage.getItem('project_name');
+	var nombre = localStorage.getItem('project_name');
 
-	doc.setFontSize(36);
-	doc.text('Net Present Value', 100, 50);
+	doc.setFontSize(24);
+	doc.text('Net Present Value', 120, 10);
+
+	doc.setFontSize(12);
+
+	doc.text('Project: ' + nombre, 50, 33);
+	doc.text('Evaluator: ' + nombre, 50, 42);
+	doc.text('Net Present Value: ' + result, 50, 50);
 
 	html2canvas(table,{
      imageTimeout:2000,
      removeContainer:true,
 		 onrendered: function(canvas){
 			 var img = canvas.toDataURL('image/png');
-			 doc.addImage(img, 'JPEG', 0, 150, canvas.width * .40 , canvas.height * .40);
+			 var proportion = canvas.width / canvas.height;
+			 var scale = 0.65;
+			 doc.addImage(img, 'JPEG', 20, 85, a4[0] * scale, (a4[1]  / proportion) * scale);
 
 			 html2canvas(form,{
 					imageTimeout:2000,
 					removeContainer:true,
 					onrendered: function(canvas){
 						var img = canvas.toDataURL('image/png');
-						doc.addImage(img, 'JPEG', 50, 75, canvas.width * .40, canvas.height * .40);
+						var proportion = canvas.width / canvas.height;
+						var scale = .40;
+						doc.addImage(img, 'JPEG', 50, 55,  a4[0] * scale, (a4[1] / proportion) * scale);
 						doc.setFontSize(24);
-						doc.text('Net Present Value: ' + result, 50, 140);
 						doc.save('npv.pdf');
 				 }
 			 });
