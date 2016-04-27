@@ -64,7 +64,7 @@
               <li class="tab col s3"><a class="active" href="#tab1">Payback Period</a></li>
               <li class="tab col s3"><a  href="#tab2">NPV</a></li>
               <li class="tab col s3"><a href="#tab3">Checklist</a></li>
-              <li class="tab col s3 disabled"><a href="#tab4">Project Screen Matrix</a></li>
+              <li class="tab col s3"><a href="#tab4">Project Screen Matrix</a></li>
             </ul>
           </div>
           <!--Ends Tabs menu -->
@@ -247,7 +247,8 @@
                 <li>
                   <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Description</div>
                   <div class="collapsible-body">
-                    <p> Short Description.
+                    <p> This method uses the checklist model, and this works basically by using a list of questions to review to review
+                      potential projects and determine their viability, based on thhis a project is accepted or rejected.
                     </p>
                   </div>
                 </li>
@@ -414,7 +415,32 @@
           </div>
           <!-- ENDS Tab 3 -->
 
-          <div id="tab4" class="col s12 grey-text text-darken-3">Test 4</div>
+          <div id="tab4" class="col s12 grey-text text-darken-3">
+            <ul class="collapsible" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header"><i class="material-icons">lightbulb_outline</i>Description</div>
+                <div class="collapsible-body">
+                  <p> Also named multi-wighted scoring model, the project screening matrix uses several selection criterias for evaluating different project proposals. It works as follows:
+                    1. This will include qualitative and quantitative criteria.
+                    2. Each selection criterion is assigned a weight.
+                    3. Scores are assigned to each criterion for the project, based in its importance to the project being evaluated.
+                    4. The weights and scores are multiplied to get a total weighted score for the
+                    project.
+                    5. With this projects can be compared using the weighted score. Projects with higher scores are considered better.
+                    With this steps the best project proporsal for solving a certain problem is selected.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+
+
+            <div class="col l4 md4 s4">
+              <form method="get" action="ProjectScreeningMatrix.xlsx">
+                <button type="submit">Open </button>
+              </form>
+            </div>
+          </div>
         </div>
 
        </div>
@@ -438,6 +464,7 @@
      <script src="scripts/payback.js"></script>
      <script src="scripts/npv.js"></script>
      <script src="scripts/checklist.js"></script>
+     <script src="scripts/screenmatrix.js"></script>
      <!-- endbuild -->
 
    </body>
