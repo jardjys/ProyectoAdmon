@@ -8,7 +8,7 @@ $( document ).ready(function(){
   var project_name = localStorage.getItem('project_name');
   var evaluator = localStorage.getItem('evaluator');
 
-  document.getElementById('project_name').innerHTML = project_name;
-  document.getElementById('evaluator').innerHTML = evaluator;
+  document.getElementById('project_showname').innerHTML = project_name;
+  document.getElementById('showevaluator').innerHTML = evaluator;
 });
 /* END Init */
